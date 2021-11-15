@@ -1,22 +1,25 @@
-package month_11;
+package month_11.week_2;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Solution {
+    static int[] moneys = { 50000, 10000, 5000, 1000, 500, 100, 50, 10 };
 
     public static void main(String[] args) {
         IntStream.rangeClosed(1, sc.nextInt()).forEach(i -> {
-            int damage = sc.nextInt();
-            int level = sc.nextInt();
-            int count = sc.nextInt();
-            int sum = 0;
+            int[] result = new int[moneys.length];
+            int money = sc.nextInt();
 
-            for (int n = 0; n < count; n ++) {
-                sum += Math.round(damage * (1 + n * (float)level/(float) 100));
+            for (int j = 0; j < moneys.length; j++) {
+                result[j] = money / moneys[j];
+                money %= moneys[j];
             }
-            println(i, sum);
+
+            println(i,"\n"+ Arrays.stream(result).mapToObj(String::valueOf).collect(Collectors.joining(" ")));
         });
     }
 
