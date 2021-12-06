@@ -12,12 +12,4 @@ fun solution(lottos: IntArray, win_nums: IntArray): IntArray {
     return listOf(calc(result), calc(result + unknown)).sorted().toIntArray()
 }
 
-fun calc(cnt: Int) = when(cnt) {
-    6 -> 1
-    5 -> 2
-    4 -> 3
-    3 -> 4
-    2 -> 5
-    1 -> 6
-    else -> 6
-}
+fun calc(cnt: Int) = if (7 - cnt == 7) 6 else 7 - cnt
