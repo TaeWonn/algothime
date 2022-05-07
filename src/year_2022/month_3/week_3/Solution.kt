@@ -20,13 +20,19 @@ class Solution {
         var r = 4
 
         //상
-        if (i < grid.size -1 && grid[i +1][j] == 1) r += check(grid, i +1, j) - 1
+        if (i > 0 && grid[i -1][j] == 1)
+            r += check(grid, i -1, j) - 2
         //하
-        if (i > 0 && grid[i -1][j] == 1) r += check(grid, i -1, j) - 1
+        if (i < grid.size -1 && grid[i +1][j] == 1)
+            r += check(grid, i +1, j) - 2
         //좌
-        if (j > 0 && grid[i][j -1] == 1) r += check(grid, i, j -1) - 1
+        if (j > 0 && grid[i][j -1] == 1)
+            r += check(grid, i, j -1) - 2
         //우
-        if (j < grid[i].size -1 && grid[i][j] == 1) r += check(grid, i, j +1) -1
+        if (j < grid[i].size -1 && grid[i][j +1] == 1)
+            r += check(grid, i, j +1) -2
+
+        println("check: $r")
         return r
     }
 }
@@ -42,7 +48,9 @@ fun main() {
     )
     val arr2 = arrayOf(intArrayOf(1))
     val arr3 = arrayOf(intArrayOf(1,1))
-    println(s.islandPerimeter(arr))
-    println(s.islandPerimeter(arr2))
-    println(s.islandPerimeter(arr3))
+    val arr4 = arrayOf(intArrayOf(1,1), intArrayOf(1,1))
+//    println(s.islandPerimeter(arr))
+//    println(s.islandPerimeter(arr2))
+//    println(s.islandPerimeter(arr3))
+    println(s.islandPerimeter(arr4))
 }
