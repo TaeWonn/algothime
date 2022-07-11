@@ -9,6 +9,9 @@ class Solution {
             hashMap[senders[i]] = s.split(" ").size + count
         }
         val comparator = compareByDescending<MutableMap.MutableEntry<String, Int>> { it.value }.thenByDescending { it.key }
+        HashMap<Int, Int>().apply {
+            this.entries
+        }
 
         return hashMap.entries
             .sortedWith(comparator)
